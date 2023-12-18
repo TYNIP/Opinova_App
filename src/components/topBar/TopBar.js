@@ -18,7 +18,7 @@ const TopBar = ({ toggleSidebar }) => {
         {/* SEARCH */}
         <SearchBar />
         <span id="breadcrumb">
-          <Link to='/ '><span>Home</span></Link>
+          <Link to='home'><span>Home</span></Link>
         </span>
       </div>
     </div>

@@ -4,7 +4,7 @@ import { selectTheme, selectSubtheme, selectThemeState } from './themesSelectorS
 import themes from './themesData';
 
 export default function ThemeSelector (){
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const { selectedTheme, selectedSubtheme } = useSelector(selectThemeState);
   const [isSubthemesVisible, setSubthemesVisible] = useState(false);
 
@@ -50,18 +50,6 @@ export default function ThemeSelector (){
           )}
         </li>
       ))}
-
-      {selectedTheme && selectedSubtheme && (
-        <li className="nav-item">
-          {/* Render Reddit data based on the selected theme and subtheme */}
-          {/* You may want to use React Router to navigate to different routes */}
-          <div className="nav-link">
-            <p>
-              Fetching Reddit data for {selectedTheme} - {selectedSubtheme}
-            </p>
-          </div>
-        </li>
-      )}
     </ul>
   );
 };

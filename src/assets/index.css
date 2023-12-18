@@ -192,7 +192,6 @@ p{
   margin: 0;
   padding: 0;
   margin-right: 1rem;
-  /* border:1px solid purple */
 }
 
 /* MIX GENERAL TOPBAR+MAIN PAGE */
@@ -334,4 +333,11 @@ p{
 #panel-wrapper {
   display: none;
 }
+}
+.noResult{
+  background-color: rgb(0, 0, 0);
+  padding: 10%;
+}
+#status .noResult{
+  color: white !important;
 }

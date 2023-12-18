@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import themesReducer from '../features/themeSelector/themesSelectorSlice';
-import searchBarSlice from '../features/searchBar/searchBarSlice';
+import searchBarReducer from '../features/searchBar/searchBarSlice';
+import postsReducer from '../features/posts/postsSlice';
 
 export const store = configureStore({
   reducer: {
     themes: themesReducer,
-    search: searchBarSlice,
+    search: searchBarReducer,
+    posts: postsReducer,
   },
 });

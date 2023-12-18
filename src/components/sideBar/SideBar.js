@@ -26,6 +26,7 @@ export default function SideBar({ isVisible }){
                         <p>OPINOVA ©2023</p>
                         <p>Developed by: <a href='https://artmoram.com/' target='_blank' rel='noreferrer'>TYNIP</a></p>
                         <p>| App with academic purposes. Not Related to any organisation or person |</p>
+                        <p>Featured through <a href='https://www.reddit.com/dev/api/' target='_blank' rel='noreferrer'>Reddit API</a></p>
                     </div>
                 </nav>
             </div>
