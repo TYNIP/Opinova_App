@@ -1,20 +1,21 @@
 import React from 'react';
-import '../assets/App.css';
-import {RouterProvider, createBrowserRouter, createRoutesFromElements, Route, Outlet, Navigate} from 'react-router-dom';
+import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route, Navigate } from 'react-router-dom';
 import AppLayout from './AppLayout';
 import PostComments from '../features/comments/PostComments';
+import Post from '../features/posts/Posts';
 
 function App() {
-  /* ROUTES SETUP */
   const router = createBrowserRouter(createRoutesFromElements(
-    <Route path='/' element={<AppLayout/>}>
-      <Route path='home' element={<Outlet />} />
-      <Route path='posts' element={<Outlet />} />
-      <Route path='posts/:postId/comments' element={<PostComments />} />
+    <Route path='/' element={<AppLayout />} >
+      <Route index element={ <Navigate to="home" replace/> }/>
+      <Route path='home' element={<Post/>} />
+      <Route path='posts' element={<Post/>} />
+      <Route path='posts/:postId/comments' element={<PostComments goBack={() => window.history.back()} />} />
     </Route>
   ));
+  
   return (
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   );
 }
 

@@ -1,16 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import {useSelector} from 'react-redux';
+import {selectPostsState } from './postsSlice';
+import Post from './Post';
 
-export default function Post({post}){
-  console.log("Ayudaa", post);
+export default function Posts(){
+  const {data: posts, isLoading, error} = useSelector(selectPostsState);
+  console.log("Data render posts", posts)
     return (
-        <div className="post-item">
-          <h3>{post.title}</h3>
-          {post.body && <p>{post.body}</p>}
-          {post.imageUrl && <img src={post.imageUrl} alt="Img went brrr 😔" />}
-          <p>{post.time} by {post.user}</p>
-          <p>{post.comments} comments | {post.likes} likes</p>
-          <Link to={`/post/${post.id}`}>View Comments</Link>
+      <div>
+        <div id='status'>
+          {isLoading && <p>Loading...</p>}
+          {error && <p className='noResult'> Ups... something wrong has happened <br/> Error: {error}</p>}
+          {!isLoading && !error && posts.length === 0 && (
+          <p className='noResult' > No Results Found <br/> 😔 <br/> Let's Search Another Thing <br/>😃</p>
+          )}
+        </div>
+        {posts.map((post) => (
+        <Post key={post.id} post={post} />
+        ))}
         </div>
       );
 };

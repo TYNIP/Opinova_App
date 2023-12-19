@@ -1,12 +1,12 @@
 import {React, useState, useEffect} from 'react';
 import { useDispatch, useSelector} from 'react-redux';
+import {Outlet, Navigate, useLocation} from 'react-router-dom'
 import TopBar from '../components/topBar/TopBar';
 import SideBar from '../components/sideBar/SideBar';
 import AuxBar from '../components/auxBar/AuxBar';
-import { fetchPosts, selectPostsState } from '../features/posts/postsSlice';
+import { fetchPosts, fetchMostPopularPosts} from '../features/posts/postsSlice';
 import { selectThemeState } from '../features/themeSelector/themesSelectorSlice';
 import { selectSearchTerm } from '../features/searchBar/searchBarSlice';
-import Post from '../features/posts/Posts';
 import '../assets/posts.css';
 
 export default function AppLayout() {
@@ -19,12 +19,17 @@ export default function AppLayout() {
     const dispatch = useDispatch();
     const { selectedTheme, selectedSubtheme } = useSelector(selectThemeState); 
     const searchTerm = useSelector(selectSearchTerm);
-    const {data: posts, isLoading, error} = useSelector(selectPostsState);
-
+    const location = useLocation();
     useEffect(() => {
-        // Fetch posts when the component mounts or when theme, subtheme, or search term changes
-        dispatch(fetchPosts({ theme: selectedTheme, subtheme: selectedSubtheme, searchTerm }));
-      }, [dispatch, selectedTheme, selectedSubtheme, searchTerm]);
+        if (location.pathname === '/home') {
+            dispatch(fetchMostPopularPosts()); 
+                console.log('techingtop');
+          } else if (location.pathname === '/posts'){
+            dispatch(fetchPosts({ theme: selectedTheme, subtheme: selectedSubtheme, searchTerm }));
+          }
+
+          console.log(location.pathname)
+      }, [dispatch, location.pathname, selectedTheme, selectedSubtheme, searchTerm]);
 
     return (
         <>
@@ -44,16 +49,7 @@ export default function AppLayout() {
                             {/* POSTS */}
                             <section id="posts">
                                 <div className="post-content">
-                                    <div id='status'>
-                                    {isLoading && <p>Loading...</p>}
-                                    {error && <p className='noResult'> Ups... something wrong has happened <br/> Error: {error}</p>}
-                                    {!isLoading && !error && posts.length === 0 && (
-                                        <p className='noResult' > No Results Found <br/> 😔 <br/> Let's Search For Another Thing</p>
-                                    )}
-                                    </div>
-                                    {posts.map((post) => (
-                                        <Post key={post.id} post={post} />
-                                    ))}
+                                    <Outlet/>
                                 </div>
                             </section>
                         </div>

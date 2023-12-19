@@ -1,6 +1,5 @@
 import {React} from 'react';
 import './topBar.css';
-import ROUTES from '../../app/routes';
 import { Link } from 'react-router-dom';
 import SearchBar from '../../features/searchBar/SearchBar';
 
@@ -18,7 +17,7 @@ const TopBar = ({ toggleSidebar }) => {
         {/* SEARCH */}
         <SearchBar />
         <span id="breadcrumb">
-          <Link to='home'><span>Home</span></Link>
+          <Link to='/home'><span>Home</span></Link>
         </span>
       </div>
     </div>

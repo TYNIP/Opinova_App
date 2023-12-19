@@ -1,10 +1,13 @@
 import {React, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectTheme, selectSubtheme, selectThemeState } from './themesSelectorSlice';
+import { useNavigate } from 'react-router-dom';
 import themes from './themesData';
+import { clearSearchTerm } from '../searchBar/searchBarSlice'
 
 export default function ThemeSelector (){
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { selectedTheme, selectedSubtheme } = useSelector(selectThemeState);
   const [isSubthemesVisible, setSubthemesVisible] = useState(false);
 
@@ -13,12 +16,16 @@ export default function ThemeSelector (){
       setSubthemesVisible(false);
     } else {
       setSubthemesVisible(true);
+      navigate('posts');
       dispatch(selectTheme(theme));
+      dispatch(clearSearchTerm());
     }
   };
 
   const handleSubthemeClick = (subtheme) => {
+    navigate('posts');
     dispatch(selectSubtheme(subtheme));
+    dispatch(clearSearchTerm());
   };
 
   return (

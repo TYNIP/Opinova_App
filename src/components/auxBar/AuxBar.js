@@ -11,11 +11,13 @@ export default function AuxBar(){
     return(
         <div id='auxBar'>
             <div id='hour'>
-                {currentHour >= 24 && currentHour < 12 && <p>{currentHour}:{currentMin} Good Morning</p>}
+                {currentHour <= 24 && currentHour < 5 && <p>{currentHour}:{currentMin} What you doing? <br/> Just watch the hour! <br/>GO TO SLEEP!</p>}
+                {currentHour >= 5 && currentHour < 12 && <p>{currentHour}:{currentMin} Good Morning</p>}
                 {currentHour >= 12 && currentHour < 19 && <p>{currentHour}:{currentMin} Good Afternoon</p>}
                 {currentHour >= 19 && currentHour < 24 && <p>{currentHour}:{currentMin} Good Night</p>}
-                <p> Fetching data of: {selectedTheme} ➤ {selectedSubtheme}</p>
-                {selectedTheme && selectedSubtheme && (<p>Theme: <br/> {selectedTheme}  ➤  {selectedSubtheme}</p>)}
+                <p>Recent Search:</p>
+                {selectedTheme && (<p>Theme: ➤ {selectedTheme} </p>)}
+                {selectedSubtheme && (<p>SubTheme: ➤  {selectedSubtheme}</p>)}
             </div>
         </div>
     );

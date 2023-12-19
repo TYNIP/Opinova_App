@@ -1,13 +1,16 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSearchTerm, selectSearchTerm } from './searchBarSlice';
+import { useNavigate } from 'react-router-dom';
 
 const SearchBar = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const searchTerm = useSelector(selectSearchTerm);
 
   const handleSearchChange = (e) => {
     dispatch(setSearchTerm(e.target.value));
+    navigate('posts');
   };
 
   return (
