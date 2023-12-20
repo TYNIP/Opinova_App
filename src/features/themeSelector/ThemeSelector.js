@@ -8,7 +8,7 @@ import { clearSearchTerm } from '../searchBar/searchBarSlice'
 export default function ThemeSelector (){
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { selectedTheme, selectedSubtheme } = useSelector(selectThemeState);
+  const { selectedTheme } = useSelector(selectThemeState);
   const [isSubthemesVisible, setSubthemesVisible] = useState(false);
 
   const handleThemeClick = (theme) => {
