@@ -136,7 +136,7 @@ p{
 
 /* MAIN WRAPPER ---------------------------------------------------------------------------------------------------*/
 #main-wrapper {
-  background-color: white;
+  background-color: rgb(236, 0, 0);
   position: relative;
   min-height: calc(100vh - 2rem);
   padding-left: 0;
