@@ -1,6 +1,8 @@
 # OPINOVA - ChitChat Everywhere
 OPINOVA is a web application that allows users to explore Reddit posts, view popular themes, and search for specific content. It provides an intuitive interface for navigating through different themes and subthemes, viewing posts, and reading comments.
 
+Website: [OPINOVA](https://opinova.netlify.app/) 
+
 ## Features
 
 - **Theme Selector:** Explore various themes such as Video Games, Music, Sports, and more.
