@@ -1,20 +1,21 @@
-#main_page .post-content *{
-    color: black !important;
+#main_page .post-content *, #postComments{
+    color: rgb(255, 255, 255);
 }
 
-#main_page .post-content .post-item{
-    border: 1px solid black ;
+#main_page .post-content .post-item {
+    border: 1px solid rgb(255, 255, 255) ;
     margin: 2% 0;
     padding: 2%;
     border-radius: 10px;
+    background-color: black;
 }
 #main_page .post-content .post-item h3{
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(255, 255, 255);
     font-weight: bold;
 }
 
 #main_page .post-content .post-item p{
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(255, 255, 255);
     margin: 0 2%;
 }
 
@@ -22,3 +23,88 @@
     width: 100%;
     max-height: 500px;
 }
+#postComments{
+    margin: 2% 0;
+    padding: 2%;
+    background-color: rgb(0, 0, 0);
+}
+#postComments ul{
+    text-decoration: none;
+    list-style: none;
+}
+#postComments ul li, #postComments h2{
+    border-bottom: 1px solid rgb(255, 255, 255);
+}
+#postComments ul li {
+    margin-right: 5%;
+}
+
+.cGeneralPosts button{
+    width: 100%;
+    border-radius: 10px;
+    background-color: transparent;
+    cursor: pointer;
+    color: black !important;
+}
+.cGeneralPosts button:hover{
+    width: 100%;
+    border-radius: 10px;
+    background-color: black;
+    cursor: pointer;
+    color: rgb(255, 255, 255) !important;
+}
+
+.dots-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 20%;
+    background-color: black;
+  }
+  
+  .dot {
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+    border-radius: 10px;
+    background-color: #b3d4fc;
+    animation: pulse 1.5s infinite ease-in-out;
+  }
+  
+  .dot:last-child {
+    margin-right: 0;
+  }
+  
+  .dot:nth-child(1) {
+    animation-delay: -0.3s;
+  }
+  
+  .dot:nth-child(2) {
+    animation-delay: -0.1s;
+  }
+  
+  .dot:nth-child(3) {
+    animation-delay: 0.1s;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(0.8);
+      background-color: #b3d4fc;
+      box-shadow: 0 0 0 0 rgba(178, 212, 252, 0.7);
+    }
+  
+    50% {
+      transform: scale(1.2);
+      background-color: #6793fb;
+      box-shadow: 0 0 0 10px rgba(178, 212, 252, 0);
+    }
+  
+    100% {
+      transform: scale(0.8);
+      background-color: #b3d4fc;
+      box-shadow: 0 0 0 0 rgba(178, 212, 252, 0.7);
+    }
+  }

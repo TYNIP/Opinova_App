@@ -7,14 +7,9 @@ export const fetchPostComments = createAsyncThunk('postComments/fetchPostComment
     const response = await fetch(url);
     const data = await response.json();
 
-    // Extract and format the post and comments data from the Reddit API response
+    // Extract and format the post and comments data
     const post = extractPost(data[0].data.children[0]);
     const comments = extractComments(data[1].data.children);
-
-    // Log the extracted data
-    console.log('Extracted post:', post);
-    console.log('Extracted comments:', comments);
-    console.log('ayudaaaaaaaaaa');
 
     return { post, comments };
   } catch (error) {

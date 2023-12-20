@@ -16,7 +16,7 @@ const PostComments = ({ goBack }) => {
   const comments = postWithComments.comments;
 
   return (
-    <div>
+    <div className='cGeneralPosts'>
       <div className="post-item">
         <h3>{post.title}</h3>
         {post.body && <p>{post.body}</p>}
@@ -25,8 +25,17 @@ const PostComments = ({ goBack }) => {
         <p>{post.likes} likes</p>
       </div>
       <button onClick={goBack}>Go Back</button>
+      <div id='postComments'>
       <h2>Post Comments</h2>
-      {isLoading && <p>Loading comments...</p>}
+      {isLoading && (
+        <section class="dots-container">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        </section>
+      )}
       {error && <p>Error: {error}</p>}
       {!isLoading && !error && comments.length === 0 && <p>No comments found</p>}
       {!isLoading && !error && comments.length > 0 && (
@@ -39,6 +48,8 @@ const PostComments = ({ goBack }) => {
           ))}
         </ul>
       )}
+    </div>
+    <button onClick={goBack}>Go Back</button>
     </div>
   );
 };

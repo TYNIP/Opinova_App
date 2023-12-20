@@ -1,6 +1,5 @@
 import React from "react";
 import './sideBar.css';
-import { NavLink } from "react-router-dom";
 import Logo from '../../assets/opinova_img_NF.png';
 import ThemeSelector from "../../features/themeSelector/ThemeSelector";
 export default function SideBar({ isVisible }){

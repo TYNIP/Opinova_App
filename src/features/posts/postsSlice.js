@@ -3,14 +3,26 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 const calculateElapsedTime = (postDate) => {
     const now = new Date();
     const elapsedTime = Math.floor((now - postDate) / (1000 * 60 * 60)); // Convert milliseconds to hours
-    return `${elapsedTime}h ago`;
+    const elapsedTimeDays = Math.floor(elapsedTime/24);
+    const elapsedTimeMonths = Math.floor(elapsedTimeDays/24);
+    if (elapsedTime < 24){
+        return `${elapsedTime}h ago`;
+    } else if (elapsedTime > 24 && elapsedTimeDays < 30){
+        return `${elapsedTimeDays} day(s) ago`;
+    } else if (elapsedTimeDays >= 30 && elapsedTimeMonths < 12){
+        return `${elapsedTimeMonths} month(s) ago`;
+    } else if (elapsedTimeMonths >= 12){
+        const elapsedTimeYears = Math.floor(elapsedTimeMonths/12);
+        const restMonths = elapsedTimeMonths - elapsedTimeYears*12;
+        return `${elapsedTimeYears} year(s) ${restMonths} month(s) ago`;
+    } 
   };
 
 /* FETCH MOST POPULAR */
 export const fetchMostPopularPosts = createAsyncThunk('posts/fetchMostPopularPosts', async () => {
     try {
       const baseUrl = 'https://www.reddit.com';
-      const url = `${baseUrl}/top.json?limit=20`; //best 20
+      const url = `${baseUrl}/top.json?limit=25`; //best 25
       const response = await fetch(url);
       const data = await response.json();
   
@@ -109,4 +121,3 @@ const postsSLice = createSlice({
 
 export const selectPostsState = (state) => state.posts;
 export default postsSLice.reducer;
-

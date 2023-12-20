@@ -1,6 +1,6 @@
 import {React, useState, useEffect} from 'react';
 import { useDispatch, useSelector} from 'react-redux';
-import {Outlet, Navigate, useLocation} from 'react-router-dom'
+import {Outlet, useLocation} from 'react-router-dom'
 import TopBar from '../components/topBar/TopBar';
 import SideBar from '../components/sideBar/SideBar';
 import AuxBar from '../components/auxBar/AuxBar';
@@ -23,12 +23,9 @@ export default function AppLayout() {
     useEffect(() => {
         if (location.pathname === '/home') {
             dispatch(fetchMostPopularPosts()); 
-                console.log('techingtop');
           } else if (location.pathname === '/posts'){
             dispatch(fetchPosts({ theme: selectedTheme, subtheme: selectedSubtheme, searchTerm }));
           }
-
-          console.log(location.pathname)
       }, [dispatch, location.pathname, selectedTheme, selectedSubtheme, searchTerm]);
 
     return (
@@ -54,12 +51,11 @@ export default function AppLayout() {
                             </section>
                         </div>
                     </div>
-                    {/* ADVERTICEMENT */}
+                    {/* Right side bar/auxiliary */}
                     <div id="panel-wrapper" className="col-xl-3 ps-2 text-muted">
                         <div id="panel-wrapper-content">
-                            {/* ADVERTICEMENT */}
+                            {/* Right side bar/auxiliary */}
                             <AuxBar/>
-
                         </div>
                     </div>
         

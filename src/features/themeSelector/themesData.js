@@ -13,13 +13,13 @@ const themes = [
       subthemesIcon: 'fa-bolt',
     },
     {
-      name: 'TV',
+      name: 'TvShows',
       subthemes: ['Friends', 'The Office'],
       nameIcon: 'fa-tv',
       subthemesIcon: 'fa-film',
     },
     {
-      name: 'Famous',
+      name: 'Celebrities',
       subthemes: ['Keanu Reeves', 'Margot Ribbie','Ryan Gosling'],
       nameIcon: 'fa-user-friends',
       subthemesIcon: 'fa-user-circle',
