@@ -32,7 +32,7 @@ export default function AppLayout() {
         <>
         <div className="content-container">
         {/* SIDEBAR */}
-        <SideBar isVisible={isSidebarVisible}/>
+        <SideBar isVisible={isSidebarVisible} toggleSidebar={toggleSidebar}/>
         
         {/* MAIN SECTION */}
         <div aria-label="main profile-wrapper" id="main-wrapper" className="d-flex justify-content-center">

@@ -11,7 +11,7 @@ export default function AuxBar(){
     return(
         <div id='auxBar'>
             <div id='hour'>
-                {currentHour <= 24 && currentHour < 5 && <p>{currentHour}:{currentMin} What you doing? <br/> Just watch the hour! <br/>GO TO SLEEP!</p>}
+                {currentHour <= 24 && currentHour < 5 && <p>{currentHour}:{currentMin} What are you doing? <br/> Just look at the hour! <br/> GO TO SLEEP!</p>}
                 {currentHour >= 5 && currentHour < 12 && <p>{currentHour}:{currentMin} Good Morning</p>}
                 {currentHour >= 12 && currentHour < 19 && <p>{currentHour}:{currentMin} Good Afternoon</p>}
                 {currentHour >= 19 && currentHour < 24 && <p>{currentHour}:{currentMin} Good Night</p>}

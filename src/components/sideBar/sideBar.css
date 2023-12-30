@@ -16,21 +16,7 @@
     }
   }
 /* TITLLE */
-#topbar-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    font-family: sans-serif;
-    color: white;
-    text-align: center;
-    width: 100%;
-    margin-left: 5%;
-    overflow: scroll;
-    text-overflow: ellipsis;
-    word-break: keep-all;
-    white-space: nowrap;
-    margin-right: 2%;
-    z-index: 1;
-}
+
 #topbar-title {
     font-size: 1.1rem;
     font-weight: 600;
@@ -49,7 +35,10 @@
     display: flex;
     text-align: center;
     justify-content: center;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid white;  
+}
+#topbar-title *{
+    text-decoration:none !important;
 }
 #topbar-title h1{
     font-size: 2rem;

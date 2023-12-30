@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import themes from './themesData';
 import { clearSearchTerm } from '../searchBar/searchBarSlice'
 
-export default function ThemeSelector (){
+export default function ThemeSelector ({ toggleSidebar }){
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { selectedTheme } = useSelector(selectThemeState);
@@ -20,12 +20,14 @@ export default function ThemeSelector (){
       dispatch(selectTheme(theme));
       dispatch(clearSearchTerm());
     }
+    toggleSidebar()
   };
 
   const handleSubthemeClick = (subtheme) => {
     navigate('posts');
     dispatch(selectSubtheme(subtheme));
     dispatch(clearSearchTerm());
+    toggleSidebar();
   };
 
   return (

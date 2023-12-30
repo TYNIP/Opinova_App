@@ -3,7 +3,7 @@ import './topBar.css';
 import { Link } from 'react-router-dom';
 import SearchBar from '../../features/searchBar/SearchBar';
 
-const TopBar = ({ toggleSidebar }) => {
+const TopBar = ({ toggleSidebar}) => {
   return (
     <div id="topbar-wrapper">
       <div id="topbar" className="container d-flex align-items-center justify-content-between h-100">
