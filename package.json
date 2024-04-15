@@ -2,6 +2,7 @@
   "name": "opinova_app",
   "version": "0.1.0",
   "private": true,
+  "author": "TYNIP",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
     "@testing-library/jest-dom": "^5.17.0",
